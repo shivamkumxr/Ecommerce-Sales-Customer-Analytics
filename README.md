@@ -210,7 +210,7 @@ Ecommerce-Sales-Customer-Analytics/
 
 ### Step 1: Clone the Repository & Install Dependencies
 ```bash
-git clone https://github.com/[YOUR-USERNAME]/Ecommerce-Sales-Customer-Analytics.git
+git clone https://github.com/shivamkumxr/Ecommerce-Sales-Customer-Analytics.git
 cd Ecommerce-Sales-Customer-Analytics
 pip install -r requirements.txt
 ```
@@ -236,8 +236,8 @@ SOURCE sql/ecommerce_analysis.sql;
 
 ## 15. Author
 
-* **Name:** [Your Name]
+* **Name:** Shivam Kumar
 * **Role:** Aspiring Data Analyst / Business Intelligence Specialist
-* **LinkedIn:** [https://linkedin.com/in/your-profile](https://linkedin.com/in/)
-* **GitHub:** [https://github.com/your-username](https://github.com/)
-* **Portfolio / Email:** [your.email@example.com]
+* **GitHub:** [https://github.com/shivamkumxr](https://github.com/shivamkumxr)
+* **Project Repository:** [https://github.com/shivamkumxr/Ecommerce-Sales-Customer-Analytics](https://github.com/shivamkumxr/Ecommerce-Sales-Customer-Analytics)
+
