@@ -1,0 +1,19 @@
+{
+  "raw_rows": 25025,
+  "clean_rows": 25000,
+  "duplicates_removed": 25,
+  "missing_values_handled": 50,
+  "date_min": "2023-01-01",
+  "date_max": "2025-12-31",
+  "total_sales": 12196639.22,
+  "total_cost": 8750484.81,
+  "total_profit": 3446154.41,
+  "total_orders": 25000,
+  "total_customers": 2199,
+  "total_products": 42,
+  "total_quantity": 52814,
+  "aov": 487.87,
+  "profit_margin_pct": 28.25,
+  "repeat_customers": 2189,
+  "repeat_rate_pct": 99.55
+}

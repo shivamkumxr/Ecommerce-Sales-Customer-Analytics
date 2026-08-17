@@ -1,0 +1,78 @@
+=== CATEGORY BREAKDOWN ===
+Technology         | Sales: $68,30,783.80 | Profit: $17,44,419.55 | Margin:  25.54% | Orders:   7096
+Furniture          | Sales: $35,47,251.81 | Profit: $9,18,886.28 | Margin:  25.90% | Orders:   5987
+Apparel            | Sales: $14,13,433.49 | Profit: $6,30,296.07 | Margin:  44.59% | Orders:   6019
+Office Supplies    | Sales: $ 4,05,170.12 | Profit: $1,52,552.51 | Margin:  37.65% | Orders:   5898
+
+=== YEARLY BREAKDOWN ===
+2023 | Sales: $39,66,686.25 | Profit: $11,16,935.78 | Orders:   8214 | AOV: $482.92 | YoY Growth:   0.00%
+2024 | Sales: $40,54,151.20 | Profit: $11,54,268.07 | Orders:   8383 | AOV: $483.62 | YoY Growth:   2.20%
+2025 | Sales: $41,75,801.77 | Profit: $11,74,950.56 | Orders:   8403 | AOV: $496.94 | YoY Growth:   3.00%
+
+=== CUSTOMER SEGMENT BREAKDOWN ===
+Consumer        | Sales: $58,81,053.94 ( 48.2%) | Profit: $16,60,774.41 | Customers:  1105 | Margin:  28.24%
+Corporate       | Sales: $38,90,264.56 ( 31.9%) | Profit: $10,99,828.12 | Customers:   637 | Margin:  28.27%
+Home Office     | Sales: $24,25,320.72 ( 19.9%) | Profit: $6,85,551.88 | Customers:   457 | Margin:  28.27%
+
+=== TOP 10 PRODUCTS BY REVENUE ===
+PROD-TEC-1003 | Gaming Laptop X1                       | Technology      | Sales: $18,65,194.37 | Profit: $3,73,464.57 | Margin:  20.0% | Qty:  1243
+PROD-TEC-1001 | UltraBook Pro 15                       | Technology      | Sales: $15,21,888.02 | Profit: $3,54,476.99 | Margin:  23.3% | Qty:  1248
+PROD-TEC-1002 | MacBook Air M2 Clone                   | Technology      | Sales: $12,44,335.91 | Profit: $3,10,411.06 | Margin:  24.9% | Qty:  1214
+PROD-FUR-2007 | Conference Room Table 8ft              | Furniture       | Sales: $9,97,312.79 | Profit: $1,85,962.76 | Margin:  18.6% | Qty:  1289
+PROD-TEC-1005 | Curved Gaming Monitor 34-inch          | Technology      | Sales: $7,49,217.26 | Profit: $1,85,343.78 | Margin:  24.7% | Qty:  1384
+PROD-FUR-2003 | Motorized Electric Standing Desk       | Furniture       | Sales: $5,84,225.08 | Profit: $1,33,856.04 | Margin:  22.9% | Qty:  1287
+PROD-FUR-2004 | Solid Oak Computer Desk                | Furniture       | Sales: $4,44,787.99 | Profit: $1,21,328.90 | Margin:  27.3% | Qty:  1228
+PROD-TEC-1004 | 4K Ultra HD Monitor 27-inch            | Technology      | Sales: $4,16,959.72 | Profit: $1,17,085.73 | Margin:  28.1% | Qty:  1319
+PROD-FUR-2002 | High-Back Leather Office Chair         | Furniture       | Sales: $3,97,256.01 | Profit: $97,081.79 | Margin:  24.4% | Qty:  1264
+PROD-FUR-2001 | Ergonomic Executive Mesh Chair         | Furniture       | Sales: $3,32,581.33 | Profit: $94,092.32 | Margin:  28.3% | Qty:  1265
+
+=== TOP 10 PRODUCTS BY PROFIT ===
+PROD-TEC-1003 | Gaming Laptop X1                       | Technology      | Profit: $3,73,464.57 | Sales: $18,65,194.37 | Margin:  20.0%
+PROD-TEC-1001 | UltraBook Pro 15                       | Technology      | Profit: $3,54,476.99 | Sales: $15,21,888.02 | Margin:  23.3%
+PROD-TEC-1002 | MacBook Air M2 Clone                   | Technology      | Profit: $3,10,411.06 | Sales: $12,44,335.91 | Margin:  24.9%
+PROD-FUR-2007 | Conference Room Table 8ft              | Furniture       | Profit: $1,85,962.76 | Sales: $9,97,312.79 | Margin:  18.6%
+PROD-TEC-1005 | Curved Gaming Monitor 34-inch          | Technology      | Profit: $1,85,343.78 | Sales: $7,49,217.26 | Margin:  24.7%
+PROD-FUR-2003 | Motorized Electric Standing Desk       | Furniture       | Profit: $1,33,856.04 | Sales: $5,84,225.08 | Margin:  22.9%
+PROD-FUR-2004 | Solid Oak Computer Desk                | Furniture       | Profit: $1,21,328.90 | Sales: $4,44,787.99 | Margin:  27.3%
+PROD-TEC-1004 | 4K Ultra HD Monitor 27-inch            | Technology      | Profit: $1,17,085.73 | Sales: $4,16,959.72 | Margin:  28.1%
+PROD-APP-4007 | Unisex Waterproof Trench Coat          | Apparel         | Profit: $1,05,376.43 | Sales: $2,59,299.16 | Margin:  40.6%
+PROD-APP-4004 | Women's Business Formal Suit Jacket    | Apparel         | Profit: $1,03,858.98 | Sales: $2,33,943.56 | Margin:  44.4%
+
+=== TOP 10 CITIES BY SALES ===
+New York City   , New York       | Sales: $25,01,396.32 | Profit: $7,02,980.63 | Orders:  5071
+Los Angeles     , California     | Sales: $18,26,417.69 | Profit: $5,15,744.06 | Orders:  3840
+Chicago         , Illinois       | Sales: $14,30,737.79 | Profit: $4,01,364.46 | Orders:  2804
+Houston         , Texas          | Sales: $10,58,010.30 | Profit: $3,00,283.79 | Orders:  2117
+Seattle         , Washington     | Sales: $10,13,215.04 | Profit: $2,88,908.89 | Orders:  2061
+Austin          , Texas          | Sales: $9,65,826.19 | Profit: $2,75,586.46 | Orders:  2089
+San Francisco   , California     | Sales: $9,64,971.23 | Profit: $2,78,244.54 | Orders:  2013
+Boston          , Massachusetts  | Sales: $8,22,015.57 | Profit: $2,33,307.87 | Orders:  1660
+Atlanta         , Georgia        | Sales: $5,72,746.68 | Profit: $1,61,767.14 | Orders:  1206
+Denver          , Colorado       | Sales: $4,42,838.09 | Profit: $1,21,483.22 | Orders:   887
+
+=== RFM SUMMARY ===
+Total Customers: 2199
+Avg Recency: 145.2 days | Min: 1 | Max: 963
+Avg Frequency: 11.4 orders | Min: 1 | Max: 60
+Avg Spend: $5,546.45 | Min: $44.00 | Max: $46,089.59
+=== TOP 10 CUSTOMERS BY LIFETIME SPEND ===
+CUST-00002 | Anthony Reed         | Corporate    | Spend: $ 46,089.59 | Orders:  39 | Profit: $11,695.81 | AOV: $1,181.78 | Recency:  28d
+CUST-00234 | Christopher Patel    | Corporate    | Spend: $ 44,315.99 | Orders:  52 | Profit: $10,084.78 | AOV: $ 852.23 | Recency:  17d
+CUST-00079 | Sharon Ward          | Corporate    | Spend: $ 43,617.33 | Orders:  44 | Profit: $10,462.89 | AOV: $ 991.30 | Recency:   4d
+CUST-00119 | Lisa Alvarez         | Corporate    | Spend: $ 40,614.08 | Orders:  45 | Profit: $10,723.63 | AOV: $ 902.54 | Recency:   2d
+CUST-00216 | Ashley Cook          | Corporate    | Spend: $ 39,124.72 | Orders:  52 | Profit: $10,329.13 | AOV: $ 752.40 | Recency:  20d
+CUST-00148 | Elizabeth Adams      | Corporate    | Spend: $ 38,235.47 | Orders:  40 | Profit: $10,724.41 | AOV: $ 955.89 | Recency:  31d
+CUST-00056 | Patricia Wright      | Corporate    | Spend: $ 37,966.51 | Orders:  37 | Profit: $10,017.29 | AOV: $1,026.12 | Recency:  21d
+CUST-00224 | Laura Morales        | Home Office  | Spend: $ 37,965.38 | Orders:  47 | Profit: $ 9,894.12 | AOV: $ 807.77 | Recency:   5d
+CUST-00175 | Patrick Harris       | Corporate    | Spend: $ 37,528.54 | Orders:  49 | Profit: $10,323.09 | AOV: $ 765.89 | Recency:  21d
+CUST-00298 | Catherine Ortiz      | Consumer     | Spend: $ 37,382.92 | Orders:  47 | Profit: $ 9,559.68 | AOV: $ 795.38 | Recency:  17d
+
+=== RFM SEGMENT BREAKDOWN ===
+Champions            | Cust:  421 ( 19.1%) | Sales: $63,42,071.83 ( 52.0%) | Avg Spend: $15,064.30 | Avg Freq: 29.7 | Avg Recency:   24d
+Loyal Customers      | Cust:  460 ( 20.9%) | Sales: $23,57,814.99 ( 19.3%) | Avg Spend: $5,125.68 | Avg Freq: 10.2 | Avg Recency:   64d
+At Risk              | Cust:  219 ( 10.0%) | Sales: $11,58,793.59 (  9.5%) | Avg Spend: $5,291.29 | Avg Freq:  8.8 | Avg Recency:  175d
+Cannot Lose Them     | Cust:  123 (  5.6%) | Sales: $7,10,250.55 (  5.8%) | Avg Spend: $5,774.39 | Avg Freq:  7.8 | Avg Recency:  345d
+Hibernating / Lost   | Cust:  316 ( 14.4%) | Sales: $5,17,231.19 (  4.2%) | Avg Spend: $1,636.81 | Avg Freq:  4.4 | Avg Recency:  426d
+Recent / Promising   | Cust:  254 ( 11.6%) | Sales: $4,20,671.81 (  3.4%) | Avg Spend: $1,656.19 | Avg Freq:  5.6 | Avg Recency:   31d
+About to Sleep       | Cust:  221 ( 10.1%) | Sales: $3,74,028.17 (  3.1%) | Avg Spend: $1,692.44 | Avg Freq:  5.2 | Avg Recency:  179d
+Potential Loyalists  | Cust:  185 (  8.4%) | Sales: $3,15,777.09 (  2.6%) | Avg Spend: $1,706.90 | Avg Freq:  5.2 | Avg Recency:   92d
