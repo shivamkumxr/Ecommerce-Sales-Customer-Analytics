@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="E-Commerce Sales & Customer Analytics Interactive Executive Dashboard - 25,000 Transactions (2023-2025)" />
+  <title>Commercial Intelligence | Executive Dashboard</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="dark-theme">
+  <!-- Top Navigation Header -->
+  <header class="top-header">
+    <div class="header-container">
+      <div class="brand-group">
+        <div class="brand-title-wrap">
+          <h1 class="brand-title">Commercial Intelligence</h1>
+          <p class="brand-subtitle">Executive Performance & Customer Analytics • 2023–2025</p>
+        </div>
+      </div>
+      
+      <!-- Primary Section Navigation Tabs -->
+      <nav class="nav-tabs" role="tablist" aria-label="Dashboard Sections">
+        <button class="nav-tab active" data-target="section-executive" role="tab" aria-selected="true" id="tab-executive">
+          <span class="tab-label">Executive Overview</span>
+        </button>
+        <button class="nav-tab" data-target="section-customer" role="tab" aria-selected="false" id="tab-customer">
+          <span class="tab-label">Customer Analytics & RFM</span>
+        </button>
+        <button class="nav-tab" data-target="section-product" role="tab" aria-selected="false" id="tab-product">
+          <span class="tab-label">Product & Profitability</span>
+        </button>
+      </nav>
+      
+      <div class="header-actions">
+        <button id="btn-export-csv" class="btn-secondary" title="Export Current Filtered Records to CSV">
+          Export CSV
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Interactive Global Filter Toolbar -->
+  <aside class="filter-toolbar" aria-label="Global Filter Controls">
+    <div class="filter-container">
+      <div class="filter-controls">
+        <!-- Date / Year Filter -->
+        <div class="filter-item">
+          <label for="filter-year">Year</label>
+          <select id="filter-year" class="filter-select">
+            <option value="ALL">All Years (2023–2025)</option>
+            <option value="2023">2023</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+          </select>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="filter-item">
+          <label for="filter-category">Category</label>
+          <select id="filter-category" class="filter-select">
+            <option value="ALL">All Categories</option>
+            <option value="Technology">Technology</option>
+            <option value="Furniture">Furniture</option>
+            <option value="Apparel">Apparel</option>
+            <option value="Office Supplies">Office Supplies</option>
+          </select>
+        </div>
+
+        <!-- Customer Segment Filter -->
+        <div class="filter-item">
+          <label for="filter-segment">Segment</label>
+          <select id="filter-segment" class="filter-select">
+            <option value="ALL">All Segments</option>
+            <option value="Consumer">Consumer</option>
+            <option value="Corporate">Corporate</option>
+            <option value="Home Office">Home Office</option>
+          </select>
+        </div>
+
+        <!-- State / Geography Filter -->
+        <div class="filter-item">
+          <label for="filter-state">Region</label>
+          <select id="filter-state" class="filter-select">
+            <option value="ALL">All States</option>
+            <option value="New York">New York</option>
+            <option value="California">California</option>
+            <option value="Texas">Texas</option>
+            <option value="Illinois">Illinois</option>
+            <option value="Washington">Washington</option>
+            <option value="Massachusetts">Massachusetts</option>
+            <option value="Georgia">Georgia</option>
+            <option value="Colorado">Colorado</option>
+            <option value="Pennsylvania">Pennsylvania</option>
+            <option value="Florida">Florida</option>
+          </select>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="filter-actions">
+          <button id="btn-reset-filters" class="btn-reset" title="Reset all filters to default">
+            Reset
+          </button>
+        </div>
+      </div>
+
+      <!-- Live Row Match Indicator -->
+      <div class="filter-stats" id="filter-stats-display">
+        Showing <strong id="stat-filtered-rows">25,000</strong> / 25,000 orders (<span id="stat-filtered-pct">100%</span>)
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main Dashboard Container -->
+  <main class="dashboard-main">
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 1: EXECUTIVE OVERVIEW -->
+    <!-- ========================================================================= -->
+    <section id="section-executive" class="dashboard-section active" role="tabpanel" aria-labelledby="tab-executive">
+      
+      <!-- Section Header -->
+      <div class="section-intro">
+        <div class="section-title-wrap">
+          <h2 class="section-title">Executive Performance Overview</h2>
+          <p class="section-desc">Commercial KPIs, multi-year revenue trajectory, department mix, and product revenue drivers.</p>
+        </div>
+      </div>
+
+      <!-- KPI Summary Cards Grid (6 Cards) -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">TOTAL REVENUE</span>
+          </div>
+          <div class="kpi-value" id="kpi-revenue">$12,196,639.22</div>
+          <div class="kpi-subtext">Gross Net Sales (25,000 Orders)</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">GROSS PROFIT</span>
+          </div>
+          <div class="kpi-value value-green" id="kpi-profit">$3,446,154.41</div>
+          <div class="kpi-subtext">COGS: <span id="kpi-cogs">$8.75M</span></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">GROSS MARGIN</span>
+          </div>
+          <div class="kpi-value value-gold" id="kpi-margin">28.25%</div>
+          <div class="kpi-subtext">Enterprise Margin Benchmark</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">TOTAL ORDERS</span>
+          </div>
+          <div class="kpi-value" id="kpi-orders">25,000</div>
+          <div class="kpi-subtext">Total Units: <span id="kpi-units">52,814</span></div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">ACTIVE CUSTOMERS</span>
+          </div>
+          <div class="kpi-value" id="kpi-customers">2,199</div>
+          <div class="kpi-subtext">99.55% Repeat Customer Rate</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">AVG ORDER VALUE</span>
+          </div>
+          <div class="kpi-value" id="kpi-aov">$487.87</div>
+          <div class="kpi-subtext">Avg 2.11 Units / Order</div>
+        </div>
+      </div>
+
+      <!-- Primary Visualization Grid -->
+      <div class="dashboard-grid-2col">
+        <!-- 36-Month Trend Chart -->
+        <div class="chart-card card-span-2">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">36-Month Revenue & Profit Trajectory</h3>
+              <p class="card-subtitle">Monthly revenue volume vs. gross profit generation across 2023–2025</p>
+            </div>
+            <div class="chart-legend-custom">
+              <span class="legend-dot dot-blue"></span> Monthly Revenue
+              <span class="legend-dot dot-gold" style="margin-left: 14px;"></span> Gross Profit
+            </div>
+          </div>
+          <div class="chart-wrapper h-360">
+            <canvas id="chart-monthly-trend"></canvas>
+          </div>
+        </div>
+
+        <!-- Revenue & Profit by Category -->
+        <div class="chart-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Revenue & Profit by Category</h3>
+              <p class="card-subtitle">Sales volume and gross profit realization across departments</p>
+            </div>
+          </div>
+          <div class="chart-wrapper h-300">
+            <canvas id="chart-category-breakdown"></canvas>
+          </div>
+        </div>
+
+        <!-- Revenue by Customer Segment -->
+        <div class="chart-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Revenue by Customer Segment</h3>
+              <p class="card-subtitle">Contribution across Consumer, Corporate, and Home Office</p>
+            </div>
+          </div>
+          <div class="chart-wrapper h-300">
+            <canvas id="chart-segment-breakdown"></canvas>
+          </div>
+        </div>
+
+        <!-- Top 10 Products by Revenue -->
+        <div class="chart-card card-span-2">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Top 10 Products by Revenue</h3>
+              <p class="card-subtitle">Ranked product sales with gross profit contribution</p>
+            </div>
+          </div>
+          <div class="chart-wrapper h-340">
+            <canvas id="chart-top-products"></canvas>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 2: CUSTOMER ANALYTICS & RFM -->
+    <!-- ========================================================================= -->
+    <section id="section-customer" class="dashboard-section" role="tabpanel" aria-labelledby="tab-customer">
+      
+      <!-- Section Header -->
+      <div class="section-intro">
+        <div class="section-title-wrap">
+          <h2 class="section-title">Customer Analytics & RFM Segmentation</h2>
+          <p class="section-desc">Recency-Frequency-Monetary (RFM) behavioral segmentation, retention metrics, and customer leaderboard.</p>
+        </div>
+      </div>
+
+      <!-- Customer KPI Grid (4 Cards) -->
+      <div class="kpi-grid kpi-grid-4">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">TOTAL CUSTOMER BASE</span>
+          </div>
+          <div class="kpi-value" id="cust-kpi-total">2,199</div>
+          <div class="kpi-subtext">Unique Verified Buyers</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">REPEAT CUSTOMER RATE</span>
+          </div>
+          <div class="kpi-value value-green" id="cust-kpi-repeat-rate">99.55%</div>
+          <div class="kpi-subtext"><span id="cust-kpi-repeat-count">2,189</span> Repeat Buyers (2+ Orders)</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">AVG LIFETIME SPEND</span>
+          </div>
+          <div class="kpi-value" id="cust-kpi-avg-spend">$5,546.45</div>
+          <div class="kpi-subtext">Range: $44.00 – $46,089.59</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">AVG ORDERS / CUSTOMER</span>
+          </div>
+          <div class="kpi-value value-gold" id="cust-kpi-avg-orders">11.37</div>
+          <div class="kpi-subtext">Order Frequency per Account</div>
+        </div>
+      </div>
+
+      <!-- RFM Segment Insights & Charts -->
+      <div class="dashboard-grid-2col">
+        <!-- RFM Segment Distribution Chart -->
+        <div class="chart-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Customer Count by RFM Segment</h3>
+              <p class="card-subtitle">Behavioral tiers scored on quintile matrix</p>
+            </div>
+          </div>
+          <div class="chart-wrapper h-320">
+            <canvas id="chart-rfm-counts"></canvas>
+          </div>
+        </div>
+
+        <!-- RFM Revenue Share Chart -->
+        <div class="chart-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Revenue Contribution by RFM Segment</h3>
+              <p class="card-subtitle">Revenue concentration across customer behavioral tiers</p>
+            </div>
+          </div>
+          <div class="chart-wrapper h-320">
+            <canvas id="chart-rfm-revenue"></canvas>
+          </div>
+        </div>
+
+        <!-- Comprehensive RFM Cohort Summary Matrix Table -->
+        <div class="chart-card card-span-2">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">RFM Behavioral Cohort Matrix</h3>
+              <p class="card-subtitle">Customer counts, revenue volume, average spend, and strategic action recommendations</p>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table" id="table-rfm-summary">
+              <thead>
+                <tr>
+                  <th>Segment Tier</th>
+                  <th class="text-right">Customers</th>
+                  <th class="text-right">Cust Share %</th>
+                  <th class="text-right">Total Revenue</th>
+                  <th class="text-right">Rev Share %</th>
+                  <th class="text-right">Avg Spend</th>
+                  <th class="text-right">Avg Orders</th>
+                  <th class="text-right">Avg Recency</th>
+                  <th>Strategic Action</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-rfm-matrix">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Top Spenders Leaderboard -->
+        <div class="chart-card card-span-2">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Top 10 Customer Leaderboard</h3>
+              <p class="card-subtitle">Ranked by total lifetime commercial spend and order velocity</p>
+            </div>
+            <div class="table-search-box">
+              <input type="text" id="input-customer-search" placeholder="Search customer name or ID..." class="input-search" />
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table" id="table-top-customers">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Customer ID</th>
+                  <th>Customer Name</th>
+                  <th>Segment</th>
+                  <th>City & State</th>
+                  <th class="text-right">Orders</th>
+                  <th class="text-right">Total Spend</th>
+                  <th class="text-right">Total Profit</th>
+                  <th class="text-right">Avg AOV</th>
+                  <th class="text-right">Recency (Days)</th>
+                  <th>RFM Tier</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-top-customers">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================= -->
+    <!-- SECTION 3: PRODUCT & PROFITABILITY -->
+    <!-- ========================================================================= -->
+    <section id="section-product" class="dashboard-section" role="tabpanel" aria-labelledby="tab-product">
+      
+      <!-- Section Header -->
+      <div class="section-intro">
+        <div class="section-title-wrap">
+          <h2 class="section-title">Product & Profitability Analytics</h2>
+          <p class="section-desc">Department gross margins, SKU-level margin triage, and complete catalog commercial matrix.</p>
+        </div>
+      </div>
+
+      <!-- Product KPI Grid (4 Cards) -->
+      <div class="kpi-grid kpi-grid-4">
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">TOTAL CATALOG SKUS</span>
+          </div>
+          <div class="kpi-value" id="prod-kpi-skus">42</div>
+          <div class="kpi-subtext">Across 4 Product Categories (14 Sub-Categories)</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">HIGHEST MARGIN CATEGORY</span>
+          </div>
+          <div class="kpi-value value-gold" id="prod-kpi-high-cat">Apparel (44.59%)</div>
+          <div class="kpi-subtext">Profit: $630.3K on $1.41M Sales</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">TOP REVENUE DRIVER</span>
+          </div>
+          <div class="kpi-value value-green" id="prod-kpi-top-sku">Gaming Laptop X1</div>
+          <div class="kpi-subtext">Sales: $1,865,194.37 (Margin: 20.02%)</div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-header">
+            <span class="kpi-title">MARGIN ALERT SKUS</span>
+          </div>
+          <div class="kpi-value value-red" id="prod-kpi-alerts">6 SKUs</div>
+          <div class="kpi-subtext">Sales > $400k & Margin < 28.25%</div>
+        </div>
+      </div>
+
+      <!-- Charts & Visuals -->
+      <div class="dashboard-grid-2col">
+        <!-- Category Margin Comparison -->
+        <div class="chart-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Gross Profit Margin % by Category</h3>
+              <p class="card-subtitle">Margin efficiency comparison across departments</p>
+            </div>
+          </div>
+          <div class="chart-wrapper h-300">
+            <canvas id="chart-category-margin"></canvas>
+          </div>
+        </div>
+
+        <!-- Category Total Revenue vs Profit -->
+        <div class="chart-card">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Category Revenue vs. Gross Profit</h3>
+              <p class="card-subtitle">Department sales volume vs. profit realization</p>
+            </div>
+          </div>
+          <div class="chart-wrapper h-300">
+            <canvas id="chart-category-rev-profit"></canvas>
+          </div>
+        </div>
+
+        <!-- Margin Alert Triage Callout & Table -->
+        <div class="chart-card card-span-2">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">High-Revenue / Low-Margin Alert SKUs</h3>
+              <p class="card-subtitle">Flagged SKUs generating > $400,000 revenue with below-benchmark gross margins (< 28.25%)</p>
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table table-alert">
+              <thead>
+                <tr>
+                  <th>Product ID</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th class="text-right">Units Sold</th>
+                  <th class="text-right">Total Revenue</th>
+                  <th class="text-right">Total Profit</th>
+                  <th class="text-right">Gross Margin %</th>
+                  <th class="text-right">Margin vs Benchmark</th>
+                  <th>Recommended Action</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-margin-alerts">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Complete 42-SKU Product Catalog Performance Table -->
+        <div class="chart-card card-span-2">
+          <div class="card-header">
+            <div class="card-title-group">
+              <h3 class="card-title">Catalog Performance Matrix</h3>
+              <p class="card-subtitle">Unit economics, volume, cost, profit, and gross margin across all active SKUs</p>
+            </div>
+            <div class="table-controls">
+              <input type="text" id="input-product-search" placeholder="Search product name or SKU..." class="input-search" />
+            </div>
+          </div>
+          <div class="table-responsive">
+            <table class="data-table" id="table-product-catalog">
+              <thead>
+                <tr>
+                  <th>Rank</th>
+                  <th>Product ID</th>
+                  <th>Product Name</th>
+                  <th>Category</th>
+                  <th>Sub-Category</th>
+                  <th class="text-right">Unit Price</th>
+                  <th class="text-right">Units</th>
+                  <th class="text-right">Total Revenue</th>
+                  <th class="text-right">Total Cost</th>
+                  <th class="text-right">Total Profit</th>
+                  <th class="text-right">Gross Margin %</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="tbody-product-catalog">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Scripts -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
